@@ -6,13 +6,12 @@ public class GuessNumberTest {
         System.out.println("Введите имя игрока 1:");
         Scanner scanner = new Scanner(System.in);
         String nameOne = scanner.nextLine();
-        Player.player1 = new Player(nameOne);
+        Player player1 = new Player(nameOne);
 
         System.out.println("Введите имя игрока 2:");
-        Scanner scanner1 = new Scanner(System.in);
-        String nameTwo = scanner1.nextLine();
-        Player.player2 = new Player(nameTwo);
+        String nameTwo = scanner.nextLine();
+        Player player2 = new Player(nameTwo);
 
-        GuessNumber.game();
+        GuessNumber.game(player1, player2);
     }
 }
