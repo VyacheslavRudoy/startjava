@@ -2,60 +2,58 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    public static void game() {
+    public static int guess() {
+        Scanner scanner = new Scanner(System.in);
+        int answer = scanner.nextInt();
+        return answer;
+    }
+
+    public static void game(Player player1, Player player2) {
         int random = (int) (Math.random() * 101);
-        int move = 1;
+        int user1Number = 0;
+        int user2Number = 0;
 
-        while (true) {
-            while (move == 1) {
-                System.out.println("Игрок " + Player.player1.getName() + ", ваш ход:");
-                int user1Number = Player.guess();
-                if (user1Number < random) {
-                    System.out.println("Данное число меньше того, что загадал компьютер");
-                } else if (user1Number > random) {
-                    System.out.println("Данное число больше того, что загадал компьютер");
-                } else if (user1Number == random) {
-                    System.out.println("Поздравляю, " + Player.player1.getName() + " угадал число!");
-                    move++;
-                }
-                move++;
+        while (!(user1Number == random || user2Number == random)) {
+            System.out.println("Игрок " + player1 + ", ваш ход:");
+            user1Number = GuessNumber.guess();
+            if (user1Number < random) {
+                System.out.println("Данное число меньше того, что загадал компьютер");
+            } else if (user1Number > random) {
+                System.out.println("Данное число больше того, что загадал компьютер");
+            } else if (user1Number == random) {
+                System.out.println("Поздравляю, " + player1 + " угадал число!");
+                GuessNumber.nextGame(player1, player2);
             }
 
-            while (move == 2) {
-                System.out.println("Игрок " + Player.player2 + ", ваш ход:");
-                int user2Number = Player.guess();
-                if (user2Number < random) {
-                    System.out.println("Данное число меньше того, что загадал компьютер");
-                } else if (user2Number > random) {
-                    System.out.println("Данное число больше того, что загадал компьютер");
-                } else if (user2Number == random) {
-                    System.out.println("Поздравляю, " + Player.player2.getName() + " угадал число!");
-                    move--;
-                }
-                move--;
+            System.out.println("Игрок " + player2 + ", ваш ход:");
+            user2Number = GuessNumber.guess();
+            if (user2Number < random) {
+                System.out.println("Данное число меньше того, что загадал компьютер");
+            } else if (user2Number > random) {
+                System.out.println("Данное число больше того, что загадал компьютер");
+            } else if (user2Number == random) {
+                System.out.println("Поздравляю, " + player2 + " угадал число!");
+                GuessNumber.nextGame(player1, player2);
             }
+        }
+    }
 
-            if (move == 3 || move == 0) {
+    public static void nextGame(Player player1, Player player2) {
+        System.out.println("Хотите продолжить игру? [yes/no]:");
+        Scanner scanner = new Scanner(System.in);
+        String nextRound = scanner.nextLine();
+        if (nextRound.equals("yes")) {
+            GuessNumber.game(player1, player2);
+        } else if (nextRound.equals("no")) {
+            System.exit(0);
+        } else {
+            while (!(nextRound.equals("yes") || nextRound.equals("no"))) {
                 System.out.println("Хотите продолжить игру? [yes/no]:");
-                Scanner scanner = new Scanner(System.in);
-                String nextRound = scanner.nextLine();
+                nextRound = scanner.nextLine();
                 if (nextRound.equals("yes")) {
-                    GuessNumber.game();
-                    move = 1;
+                    GuessNumber.game(player1, player2);
                 } else if (nextRound.equals("no")) {
                     System.exit(0);
-                } else {
-                    while (!(nextRound.equals("yes") || nextRound.equals("no"))) {
-                        System.out.println("Хотите продолжить игру? [yes/no]:");
-                        Scanner scanner1 = new Scanner(System.in);
-                        nextRound = scanner1.nextLine();
-                        if (nextRound.equals("yes")) {
-                            GuessNumber.game();
-                            move = 1;
-                        } else if (nextRound.equals("no")) {
-                            System.exit(0);
-                        }
-                    }
                 }
             }
         }
