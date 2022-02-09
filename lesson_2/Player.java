@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Player {
     private String name;
-    public static Player player1 = new Player();
-    public static Player player2 = new Player();
 
     public Player() {
         name = "No name";
@@ -27,11 +25,5 @@ public class Player {
 
     public String toString() {
         return String.format(name);
-    }
-
-    public static int guess() {
-        Scanner scanner = new Scanner(System.in);
-        int answer = scanner.nextInt();
-        return answer;
     }
 }
