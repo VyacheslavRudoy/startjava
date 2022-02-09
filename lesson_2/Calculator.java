@@ -1,8 +1,7 @@
 public class Calculator {
 
-    private int result;
-
-        public void calculate(int a, int b, char symbol) {
+    public int calculate(int a, int b, char symbol) {
+        int result = 0;
         if (a % 1 == 0 && b % 1 == 0 && a > 0 && b > 0) {
             switch (symbol) {
                 case '+':
@@ -27,9 +26,6 @@ public class Calculator {
                     result = a % b;
             }
         }
-    }
-
-    public int getResult() {
         return result;
     }
 }
