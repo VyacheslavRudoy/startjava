@@ -3,9 +3,8 @@ import java.util.Scanner;
 public class CalculatorTest {
 
     public static void main(String[] args) {
-
-        boolean activity = true;
-        while (activity == true) {
+        String option = "";
+        while (!option.equals("no")) {
             System.out.println("Введите первое число: ");
             Scanner scanner = new Scanner(System.in);
             int a = scanner.nextInt();
@@ -17,19 +16,14 @@ public class CalculatorTest {
             int b = scanner.nextInt();
 
             Calculator calculator = new Calculator();
-            calculator.calculate(a, b, mathOperation);
-            System.out.println(calculator.getResult());
+            System.out.println(calculator.calculate(a, b, mathOperation));
 
-            String option = "";
             option = scanner.nextLine();
 
 
             while (!(option.equals("no") || option.equals("yes")))  {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 option = scanner.nextLine();
-                if (option.equals("no")) {
-                    activity = false;
-                }
             }
         }
     }
