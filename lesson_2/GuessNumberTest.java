@@ -12,6 +12,18 @@ public class GuessNumberTest {
         String nameTwo = scanner.nextLine();
         Player player2 = new Player(nameTwo);
 
-        GuessNumber.game(player1, player2);
+        String nextRound = "yes";
+        while (nextRound.equals("yes")) {
+            GuessNumber game = new GuessNumber();
+            game.start(player1, player2);
+
+            while (!nextRound.equals("no")) {
+                System.out.println("Хотите продолжить игру? [yes/no]:");
+                nextRound = scanner.nextLine();
+                if (nextRound.equals("yes")) {
+                    game.start(player1, player2);
+                }
+            }
+        }
     }
 }
