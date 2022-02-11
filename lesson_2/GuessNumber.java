@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class GuessNumber {
-    Player player1;
-    Player player2;
+    private Player player1;
+    private Player player2;
 
     public GuessNumber(String nameOne, String nameTwo) {
         player1 = new Player(nameOne);
