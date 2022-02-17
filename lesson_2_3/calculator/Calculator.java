@@ -31,4 +31,3 @@ public class Calculator {
         return result;
     }
 }
-test
