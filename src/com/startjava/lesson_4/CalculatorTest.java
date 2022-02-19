@@ -1,7 +1,6 @@
 package com.startjava.lesson_4;
 
 import com.startjava.lesson_2_3.calculator.Calculator;
-
 import java.util.Scanner;
 
 public class CalculatorTest {
@@ -18,7 +17,6 @@ public class CalculatorTest {
 
                Calculator calculator = new Calculator();
                 System.out.println(calculator.calculate(a, b, mathOperation));
-                option = "";
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
