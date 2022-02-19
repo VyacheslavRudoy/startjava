@@ -1,6 +1,5 @@
-package com.startjava.lesson_4;
+package com.startjava.lesson_2_3_4.calculator;
 
-import com.startjava.lesson_2_3.calculator.Calculator;
 import java.util.Scanner;
 
 public class CalculatorTest {
@@ -11,12 +10,8 @@ public class CalculatorTest {
             Scanner scanner = new Scanner(System.in);
             String[] mathExpression = scanner.nextLine().split(" ");
 
-            int a = Integer.parseInt(mathExpression[0]);
-            char mathOperation = mathExpression[1].charAt(0);
-            int b = Integer.parseInt(mathExpression[2]);
-
-               Calculator calculator = new Calculator();
-                System.out.println(calculator.calculate(a, b, mathOperation));
+            Calculator calculator = new Calculator();
+            System.out.println(calculator.calculate(mathExpression));
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
