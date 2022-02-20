@@ -11,10 +11,6 @@ public class Player {
         this.name = name;
     }
 
-    public void setAllNumbers(int newValue, int i) {
-        this.allNumbers[i] = newValue;
-    }
-
     public String toString() {
         return name;
     }
