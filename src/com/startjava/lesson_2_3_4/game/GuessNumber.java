@@ -23,8 +23,8 @@ public class GuessNumber {
             mainLogic(player2, randomNumber, i);
         }
 
-        overing(player1);
-        overing(player2);
+        overing(player1, 0, i);
+        overing(player2, 0, i);
     }
 
     public void mainLogic(Player player, int randomNumber, int i) {
@@ -51,7 +51,7 @@ public class GuessNumber {
         }
     }
 
-    public void overing(Player player) {
+    public void overing(Player player, int firstIndex, int secondIndex) {
         boolean allNumbers = false;
             if (player.getAllNumbers().length == 10 && player.getAllNumbers()[9] != 0) {
                 allNumbers = true;
@@ -59,9 +59,7 @@ public class GuessNumber {
 
             if (allNumbers == true) {
             System.out.println("Числа, которые назвал " + player.getName() + " :" + Arrays.toString(Arrays.copyOf(player.getAllNumbers(), player.getAllNumbers().length)));
-            player.fill(0);
         }
+        player.fill(firstIndex, secondIndex, 0);
     }
 }
-
-

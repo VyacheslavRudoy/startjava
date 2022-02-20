@@ -25,8 +25,7 @@ public class Player {
         allNumbers[index] = number;
     }
 
-    public void fill(int number) {
-        Arrays.fill(allNumbers, number);
+    public void fill(int firsIndex, int secondIndex, int number) {
+        Arrays.fill(allNumbers,firsIndex, secondIndex, number);
     }
 }
-
