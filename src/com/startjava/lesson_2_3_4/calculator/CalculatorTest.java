@@ -8,10 +8,9 @@ public class CalculatorTest {
         while (option.equals("yes")) {
             System.out.print("Введите математическое выражение: ");
             Scanner scanner = new Scanner(System.in);
-            String[] mathExpression = scanner.nextLine().split(" ");
 
             Calculator calculator = new Calculator();
-            System.out.println(calculator.calculate(mathExpression));
+            System.out.println(calculator.calculate(scanner.nextLine()));
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");

@@ -2,7 +2,8 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    public int calculate(String[] mathExpression) {
+    public int calculate(String line) {
+        String[] mathExpression = line.split(" ");
         int a = Integer.parseInt(mathExpression[0]);
         char mathOperation = mathExpression[1].charAt(0);
         int b = Integer.parseInt(mathExpression[2]);
@@ -23,6 +24,6 @@ public class Calculator {
                     return (int) Math.IEEEremainder(a, b);
             }
         }
-        return result;
+        return 0;
     }
 }
