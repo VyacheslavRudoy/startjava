@@ -57,7 +57,7 @@ public class GuessNumber {
                 allNumbers = true;
             }
 
-        if (allNumbers == true) {
+            if (allNumbers == true) {
             System.out.println("Числа, которые назвал " + player.getName() + " :" + Arrays.toString(Arrays.copyOf(player.getAllNumbers(), player.getAllNumbers().length)));
             player.fill(0);
         }
