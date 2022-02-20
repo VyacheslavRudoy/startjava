@@ -1,8 +1,10 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
+
 public class Player {
     private String name;
-    public int[] allNumbers = new int[10];
+    private int[] allNumbers = new int[10];
 
     public Player(String name) {
         if (name.isEmpty()) {
@@ -11,7 +13,20 @@ public class Player {
         this.name = name;
     }
 
-    public String toString() {
+    public String getName() {
         return name;
     }
+
+    public int[] getAllNumbers() {
+        return allNumbers;
+    }
+
+    public void setAllNumbers(int index, int number) {
+        allNumbers[index] = number;
+    }
+
+    public void fill(int number) {
+        Arrays.fill(allNumbers, number);
+    }
 }
+
