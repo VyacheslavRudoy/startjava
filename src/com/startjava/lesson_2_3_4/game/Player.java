@@ -18,14 +18,16 @@ public class Player {
     }
 
     public int[] getAllNumbers() {
-        return allNumbers;
+        return Arrays.copyOf(allNumbers, allNumbers.length);
     }
 
-    public void setAllNumbers(int index, int number) {
+    public void setAllNumber(int index, int number) {
         allNumbers[index] = number;
     }
 
-    public void fill(int firsIndex, int secondIndex, int number) {
-        Arrays.fill(allNumbers,firsIndex, secondIndex, number);
+    public void fill( int secondIndex) {
+        int firstIndex = 0;
+        int number = 0;
+        Arrays.fill(allNumbers, firstIndex, secondIndex, number);
     }
 }
