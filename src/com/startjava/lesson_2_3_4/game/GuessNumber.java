@@ -17,22 +17,15 @@ public class GuessNumber {
         int i;
 
         System.out.println("У каждого игрока есть 10 попыток");
-        for (i = 0; i < 10; i++) {
+        for (i = 0; (i < 10) && (!isPlayerWin); i++) {
             if (!isPlayerWin) {
                 startGameplay(player1, randomNumber, i);
             }
             if (!isPlayerWin) {
                 startGameplay(player2, randomNumber, i);
-            } else if (isPlayerWin) {
-                break;
             }
         }
-
-        endOfGameProcess(player1);
-        endOfGameProcess(player2);
-
-        remove(player1, i);
-        remove(player2, i);
+        clearNumbers();
     }
 
     public void startGameplay(Player player, int randomNumber, int i) {
@@ -40,7 +33,7 @@ public class GuessNumber {
 
         System.out.println("Игрок " + player.getName() + ", ваш ход:");
         int playerNumber = scanner.nextInt();
-        player.addAllNumber(i, playerNumber);
+        player.addNumber(i, playerNumber);
 
         if (playerNumber < randomNumber) {
             System.out.println("Данное число меньше того, что загадал компьютер");
@@ -53,25 +46,21 @@ public class GuessNumber {
 
         if (i == 9) {
             System.out.println("У " + player.getName() + " закончились попытки");
+            showEnteredNumbers(player);
         }
     }
 
-    public void endOfGameProcess(Player player) {
-        if (player.getAllNumber(9) != 0) {
-            enumerationOfNumbers(player);
-        }
-    }
-
-    public void enumerationOfNumbers(Player player) {
+    public void showEnteredNumbers(Player player) {
         System.out.print("Числа, которые назвал " + player.getName() + " : ");
 
-        for (int allNumber : player.getAllNumbers()) {
-            System.out.print(allNumber + " ");
+        for (int number : player.getAllNumbers()) {
+            System.out.print(number + " ");
         }
         System.out.println("");
     }
 
-    public void remove(Player player, int toIndex) {
-        player.fill(toIndex);
+    public void clearNumbers() {
+        player1.fill(player1.getAllNumbers().length);
+        player2.fill(player2.getAllNumbers().length);
     }
 }
