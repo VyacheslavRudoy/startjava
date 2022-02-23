@@ -17,7 +17,7 @@ public class GuessNumber {
         int i;
 
         System.out.println("У каждого игрока есть 10 попыток");
-        for (i = 0; (i < 10) && (!isPlayerWin); i++) {
+        for (i = 0; (i < 10) && !isPlayerWin; i++) {
             if (!isPlayerWin) {
                 startGameplay(player1, randomNumber, i);
             }
