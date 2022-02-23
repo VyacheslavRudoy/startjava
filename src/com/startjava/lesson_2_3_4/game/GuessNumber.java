@@ -17,7 +17,7 @@ public class GuessNumber {
         int i;
 
         System.out.println("У каждого игрока есть 10 попыток");
-        for (i = 0; (i < 10) && !isPlayerWin; i++) {
+        for (i = 0; ((i < 10) && !isPlayerWin); i++) {
             if (!isPlayerWin) {
                 startGameplay(player1, randomNumber, i);
             }
@@ -25,7 +25,7 @@ public class GuessNumber {
                 startGameplay(player2, randomNumber, i);
             }
         }
-        clearNumbers();
+        clearNumbers(i);
     }
 
     public void startGameplay(Player player, int randomNumber, int i) {
@@ -53,14 +53,14 @@ public class GuessNumber {
     public void showEnteredNumbers(Player player) {
         System.out.print("Числа, которые назвал " + player.getName() + " : ");
 
-        for (int number : player.getAllNumbers()) {
+        for (int number : player.getAllNumbers(10)) {
             System.out.print(number + " ");
         }
         System.out.println("");
     }
 
-    public void clearNumbers() {
-        player1.fill(player1.getAllNumbers().length);
-        player2.fill(player2.getAllNumbers().length);
+    public void clearNumbers(int i) {
+        player1.fill(i);
+        player2.fill(i);
     }
 }

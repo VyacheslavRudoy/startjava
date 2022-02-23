@@ -17,14 +17,8 @@ public class Player {
         return name;
     }
 
-    public int[] getAllNumbers() {
-        int length = 0;
-        for (int number : allNumbers) {
-            if (number != 0) {
-                length ++;
-            }
-        }
-        return Arrays.copyOf(allNumbers, length);
+    public int[] getAllNumbers(int index) {
+        return Arrays.copyOf(allNumbers, index);
     }
 
     public void addNumber(int index, int number) {
