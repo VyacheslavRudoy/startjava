@@ -1,5 +1,5 @@
 # startjava
-***
+
 <div>This project contains simple console Java applications:
 <br />
 a calculator,
